@@ -1,20 +1,46 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import ContainerCard from "./Cards"
+import SearchBar from './Input'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-
-  console.log("Hola mundo");
-  
+  const [text, setText] = useState("");
+  function handleInputChange(value) {
+    setText(value);
+  }
   return (
     <>
-      <div className='bg-slate-600 h-screen w-full border-2 border-red-300'>
-        <p>hola mundo</p>
-      </div>
-    </> 
+      <Nav text={text} handleInputChange={handleInputChange}></Nav>
+      <Body text={text}> </Body>
 
-  )
+    </>)
 }
+
+function Nav({ text, handleInputChange }) {
+
+
+  return (<>
+
+    <div className='bg-stone-400 w-full h-32'>
+      <SearchBar searchText={text} handleInputChange={handleInputChange}></SearchBar>
+    </div>
+  </>)
+}
+
+function Body({text }) {
+  return (<>
+    <div className='bg-orange-200 w-full h-screen'>
+      <ContainerCard text={text}></ContainerCard>
+    </div>
+
+
+  </>)
+}
+
+
+
+
 
 export default App
