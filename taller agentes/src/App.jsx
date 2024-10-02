@@ -31,7 +31,6 @@ function Nav({ text, handleInputChange }) {
 
 function Body({text }) {
   return (<>
-
     <div className='bg-orange-200 w-full h-screen'>
       <ContainerCard text={text}></ContainerCard>
     </div>
